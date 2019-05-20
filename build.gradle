@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile group: 'org.apache.cxf', name: 'cxf-core', version: '3.3.2'
+    compile group: 'org.apache.camel', name: 'camel-soap', version: '3.0.0-M2'
+    compile group: 'org.apache.camel', name: 'camel-core', version: '3.0.0-M2'
+    compile group: 'org.apache.camel', name: 'camel-cxf', version: '3.0.0-M2'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.3.2'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.3.2'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http-jetty', version: '3.3.2'
+    compile group: 'org.apache.cxf', name: 'cxf-spring-boot-starter-jaxws', version: '3.3.2'
+    compile group: 'org.apache.camel', name: 'camel-spring-boot-starter', version: '3.0.0-M2'
+
+}
+
